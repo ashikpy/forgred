@@ -1,34 +1,29 @@
-import { Button } from "./components/ui/button";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import { Calendar } from "@/components/ui/calendar";
 import { useState } from "react";
+import "./App.css";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
 
 function App() {
-  const [date, setDate] = useState(new Date());
+  const [times, setTimes] = useState(0);
+
+  const handleclick = () => {
+    setTimes((e) => e + 1);
+  };
+
   return (
     <>
-      <Calendar
-        mode="single"
-        selected={date}
-        onSelect={setDate}
-        className="rounded-md border"
-      />
-      <Button>Hello</Button>
-      <Carousel>
-        <CarouselContent>
-          <CarouselItem>Heklllsdkfjshkjh</CarouselItem>
-          <CarouselItem>This is ahikkkkkk</CarouselItem>
-          <CarouselItem>...</CarouselItem>
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
+      <div className="flex flex-col items-center justify-center">
+        {/* <button onClick={handleclick}>Press mee {times}</button> */}
+      </div>
+      <HoverCard>
+        <HoverCardTrigger>Hover</HoverCardTrigger>
+        <HoverCardContent>
+          The React Framework - created and maintained by @vercel.
+        </HoverCardContent>
+      </HoverCard>
     </>
   );
 }
